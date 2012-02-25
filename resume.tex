@@ -1,128 +1,163 @@
-\documentclass[10pt]{letter}
-\author{Daniel King}
-\title{Daniel King}
-\date{22 February 2011}
-\pagestyle{empty}
-\usepackage{anysize}
+\documentclass[10pt]{article}
+
+\usepackage{mdwlist}     % for \begin{itemize*}
+\usepackage{anysize}     % for \marginsize
+\usepackage[T1]{fontenc} % nicer fonts
+\usepackage[utf8]{inputenc}
+\usepackage{CJK}         % seriously.
+\usepackage{ifthen}      % used in job command
+\usepackage{latexsym}    % used in my-itemize environment
+\usepackage{url}
+
 \hyphenpenalty 250
-%% left, right, top, bottom
-\marginsize{1.5cm}{1.5cm}{-1cm}{1cm}
+
+\marginsize{1cm}{1cm}{-1cm}{1cm}
+
+\newenvironment{my-itemize}
+  {\begin{itemize*}
+   \renewcommand{\labelitemi}{$\angle$}
+  }
+  {\end{itemize*}}
+
+\newcommand{\job}[6]{
+  \begin{tabbing} {\bf #1} \` {\small #2 \textit{#3}} \end{tabbing}
+  \vspace{-15pt}
+  \begin{my-itemize}
+  \setlength\itemsep{1pt}
+  \item [] {\textit{#4} \ifthenelse{\equal{#5}{}}
+                                   {}
+                                   {--- #5}}
+  #6
+  \end{my-itemize}
+}
+
+\newcommand{\heading}[2]{
+  \subsection*{#1}
+  \vspace{-10pt}
+  \rule{2in}{.5pt}
+  \vspace{-5pt}
+  #2
+}
+
 \begin{document}
 \begin{tabbing}{\Huge Daniel King} \\
 \normalsize danking@ccs.neu.edu \`(603) 548-7328
 \end{tabbing}
 
-\vspace{-10pt}
-\begin{tabbing}
-\textbf{Current Address} \`\textbf{Permanent Address}\\
-450 Parker St. Boston, MA 02115 \#7169 \`92 Drew Rd. Derry, NH 03038
-\end{tabbing}\vspace{-15pt}
-\rule{\linewidth}{.5pt}
-
-{\Large Education}
-\begin{tabbing}
-{\large \bf Northeastern University} --- Boston, MA \` \textit{Fall 2008-Present} \\
-College of Computer and Information Science
-\end{tabbing}\vspace{-10pt}
-
-\begin{itemize}
-\setlength\itemsep{1pt}
-\item [] {\textit{Candidate for a Bachelor of Science in Computer Science and
-    Physics, 2013}}
-\item{3.768/4.000 GPA, Honors Program}
-\item{Relevant coursework: Differential Equations, Algorithms, Programming
-  Languages, Electricity and Magnetism, Quantum Mechanics, Astrophysics and Cosmology}
-\end{itemize}
-
-\rule{\linewidth}{.5pt}
-
-{\Large Research and Teaching Experience}
+\vspace{-15pt}
 
 \begin{tabbing}
-{\large \bf Northeastern University} --- Boston, MA \` \textit{Summer 2011--Present}
-
+\textbf{Current Address}                 \`\textbf{Permanent Address}\\
+450 Parker St. Boston, MA 02115 \#7169   \`92 Drew Rd. Derry, NH 03038
 \end{tabbing}
-\begin{itemize}
-\setlength\itemsep{1pt}
-\item [] {\textit{Research Assistant --- Flow Optimized, Type Safe, Parser
-    Generator}}
-%% \item [] \textit{Supervisor: Professor Olin Shivers, shivers@ccs.neu.edu}
-\item{Implemented a compiler from a Push Down Automata description language to Racket}
-\item{Writing a flow analysis algorithm which leverages the computational
-  weakness of PDAs to achieve precise static guarantees}
-\item{Some of the source available at
-  \texttt{https://github.com/danking/pda-to-pda-risc}}
-\end{itemize}
+\vspace{-15pt}
+\rule{\linewidth}{.1pt}
 
-\begin{tabbing}
-{\large \bf Northeastern University} --- Boston, MA \` \textit{Fall 2011}
+\heading{Education}
 
-\end{tabbing}
-\begin{itemize}
-\setlength\itemsep{1pt}
-\item [] \textit{Teaching Assistant --- Fundamentals of Computer Science I}
-%% \item [] \textit{Supervisor: Professor Olin Shivers, shivers@ccs.neu.edu}
-\item{Taught two lab sections; assistant TA for the honors section and lead TA
-  for a regular section}
-\item{Assisted numerous students overcome idiosyncratic misunderstandings of the
-  course material during weekly office hours}
+\job{Northeastern University}
+    {Boston, MA}
+    {Fall 2008--Present}
+    {Candidate for a Bachelor of Science in Computer Science and Physics, 2013}
+    {}{
+  \item 3.768/4.000 GPA, Honors Program
+  \item Relevant coursework: Algorithms, Electricity and Magnetism,
+    Quantum Mechanics, Astrophysics and Cosmology
+  \item Formed a study group for Quantum Field Theory because there is no
+    undergraduate class offered in QFT.
+}
 
-\end{itemize}
+\heading{Research and Teaching Experience}
 
-\begin{tabbing}
-{\large \bf Citizen Schools} --- Boston, MA \` \textit{Fall 2010}
+\job{Pushdown Flow Analysis Applied to Parser Generators}
+    {Boston, MA}
+    {Summer 2011--Present}
+    {Research Assistant}
+    {Northeastern University}{
+  \item{Designing a flow analysis which leverages the computational weakness of
+    PDAs to achieve precise static guarantees}
+  \item{Implemented a compiler from a push down automata (PDA) description
+    language to Racket}
+  \item{Learned an immense amount about type theory, abstract interpretation,
+    lattice theory, and parsing}
+}
 
-\end{tabbing}
-\begin{itemize}
-\setlength\itemsep{1pt}
-\item [] \textit{After School Teacher --- Bootstrap}
-%% \item [] \textit{Supervisor: Professor David Van Horn, dvanhorn@ccs.neu.edu}
-\item{Taught middle school students algebra by teaching the how to program their
-  own video games.}
-\item{More info about the Bootstrap project is available at \texttt{http://www.bootstrapworld.org/}}
+\job{Fundamentals of Computer Science I}
+    {Boston, MA}
+    {Fall 2011}
+    {Teaching Assistant}
+    {Northeastern University}{
+  \item{Taught two lab sections; assistant TA for the honors section and lead TA
+    for a regular section}
+  \item{Assisted numerous students overcome idiosyncratic misunderstandings of the
+    course material during weekly office hours}
+}
 
-\end{itemize}
+\job{Bootstrap}
+    {Boston, MA}
+    {Fall 2009}
+    {After School Teacher}
+    {Citizen Schools}{
+  \item{Taught middle school students algebra by teaching the how to program their
+    own video games.}
+  \item{More info about the Bootstrap project is available at \texttt{http://www.bootstrapworld.org/}}
+}
 
-\begin{tabbing}
-{\large \bf Northeastern University} --- Boston, MA \` \textit{Summers 2009 and
-  2010}
+\job{Scheme to JavaScript Compiler}
+    {Boston, MA}
+    {Summers 2009 and 2010}
+    {Research Assistant}
+    {Northeastern University}{
+  \item{Implemented a compiler to provide a browser-based runtime environment for
+    students' Scheme programs}
+  \item{Created a trampolining interpreter to achieve tail call optimization in
+    JavaScript}
+  \item{Examples available at \texttt{http://www.ccs.neu.edu/home/danking/progs/}}
+}
 
-\end{tabbing}
-\begin{itemize}
-\setlength\itemsep{1pt}
-\item [] \textit{Research Assistant --- Scheme to JavaScript compiler}
-%% \item [] \textit{Supervisor: Professor David Van Horn, dvanhorn@ccs.neu.edu}
-\item{Implemented a compiler to provide a browser-based runtime environment for
-  students' Scheme programs}
-\item{Created a trampolining interpreter to achieve tail call optimization in
-  JavaScript}
-\item{Examples available at \texttt{http://www.ccs.neu.edu/home/danking/progs/}}
+\heading{Engineering Experience}
 
-\end{itemize}
+\job{Intuit, Inc.}
+    {San Diego, CA}
+    {Fall 2010}
+    {Software Engineer}
+    {TurboTax Developer Operations Team}{
+  \item{Contributed to the maintenance of the TurboTax build and dependency
+    management systems}
+}
 
-\rule{\linewidth}{.5pt}
+\job{TeaScript}
+    {San Diego, CA}
+    {Fall 2010}
+    {Sole Imagineer}
+    {A Personal Foray into Language and Compiler Design}{
+  \item{Wrote a compiler for a Scheme-like language that targets JavaScript
+    which attempts to produce readable JavaScript}
+}
 
-{\Large Engineering Experience}
 
-\begin{tabbing}
-{\large \bf Intuit, Inc.} --- San Diego, CA \` \textit{Fall 2010}
+% urls cannot normally be used as arguments
+\urldef\githubpage\url{github.com/danking}
 
-\end{tabbing}
+\job{My GitHub Page}
+    {}
+    {}
+    {Personal and Research Projects}
+    {\githubpage}{
+  \item{Many of my personal and research projects are available on my GitHub
+    page, including this r\'{e}sum\'{e}!}
+}
 
-\begin{itemize}
-\setlength\itemsep{1pt}
-\item [] {\textit{Software Engineer --- TurboTax Developer Operations Team}}
-\item{Contributed to the maintenance of the TurboTax build and dependency
-  management systems}
-\end{itemize}
+\heading{Activities}{
 
-\rule{\linewidth}{.5pt}
-
-{\Large Activities}
-\begin{itemize}
+\begin{my-itemize}
 \setlength\itemsep{1pt}
 \item{Regularly compete in Northeastern's intramural soccer league}
 \item{Globetrotting; most recently through Switzerland, Austria, Hungary, and
   the Czech Republic}
-\item{Studying Mandarin; I intend to study abroad in China}
-\end{itemize} \end{document}
+\item{Studying Mandarin; I intend to study abroad in China.}
+\item{Play guitar, I'm still quite a novice, but I enjoy playing Blues and Rock}
+\end{my-itemize}
+}
+
+\end{document}
