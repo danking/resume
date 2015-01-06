@@ -7,10 +7,20 @@
 \usepackage{ifthen}      % used in job command
 \usepackage{latexsym}    % used in my-itemize environment
 \usepackage{url}
+\usepackage{amssymb}     % for \lozenge
 
 \hyphenpenalty 250
 
-\marginsize{1.5cm}{1cm}{-.5cm}{1cm}
+\marginsize{2.5cm}{2cm}{0.5cm}{3cm}
+
+\newenvironment{absolutelynopagebreak}
+  {\par\nobreak\vfil\penalty0\vfilneg
+   \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+   \prevdepth=\tpd}
+
+
+\pagenumbering{gobble}   % turn off page numbering
 
 \newenvironment{my-itemize}
   {\begin{itemize*}
@@ -19,23 +29,46 @@
   {\end{itemize*}}
 
 \newcommand{\job}[6]{
+  \begin{absolutelynopagebreak}
+  \vspace{-5pt}
   \begin{tabbing} {\bf #1} \` {\small \textit{#3}} \end{tabbing}
-  \vspace{-6pt}
-  {\small #2}
+  \vspace{-12pt}
   \begin{my-itemize}
   \setlength\itemsep{1pt}
   \item [] {\textit{#4} \ifthenelse{\equal{#5}{}}
                                    {}
                                    {--- #5}}
   #6
-  \end{my-itemize}
+  \end{my-itemize}%
+  \end{absolutelynopagebreak}
+  \vspace{-16pt}
+}
+
+\newcommand{\pub}[4]{
+  \begin{absolutelynopagebreak}
+  \vspace{8pt}
+  \noindent {\bf #1}
+  \begin{my-itemize}
+  \item [] {\small #2}
+  \item [] {\small \textit{#4,}} {\small #3}
+  \end{my-itemize}%
+  \end{absolutelynopagebreak}
+  \vspace{-16pt}
+}
+
+\newcommand{\award}[2]{
+  \begin{absolutelynopagebreak}
+  \vspace{8pt}
+  \noindent {\bf #1,} {\small #2}%
+  \end{absolutelynopagebreak}
 }
 
 \newcommand{\heading}[2]{
-  \subsection*{#1}
-  \vspace{-10pt}
+  \vspace{2em}
+  \subsection*{\hspace{-.9em}$\lozenge$ #1}
+  \vspace{-12pt}
   \rule{2in}{.5pt}
-  \vspace{-5pt}
+  \vspace{-1em}
   #2
 }
 
@@ -55,6 +88,7 @@ Somerville, MA 02143                    \`Cambridge, MA\\
 \vspace{-25pt}
 \rule{\linewidth}{.1pt}
 
+\vspace{-2em}
 \heading{Education}
 
 \job{Harvard University}
@@ -62,10 +96,7 @@ Somerville, MA 02143                    \`Cambridge, MA\\
     {Fall 2013--Present}
     {Computer Science Ph.D. Student}
     {}{
-  \item Working with Stephen Chong in Harvard's Programming Languages group
-  \item Relevant coursework: CS221 Computational Complexity, CS260r Cloud Big
-    Data Systems, CS281 Advanced Machine Learning, CS252r Advanced
-    Topics in Programming Languages
+  \item Studying Programming Languages, advised by Stephen Chong
 }
 
 \job{The Inter-University Program for Chinese Language Study, Tsinghua University}
@@ -74,7 +105,6 @@ Somerville, MA 02143                    \`Cambridge, MA\\
     {Chinese Language Student}
     {}{
   \item Studied Chinese at an intermediate level
-  \item Acquired conversational Chinese language ability
 }
 
 \job{Northeastern University}
@@ -82,50 +112,62 @@ Somerville, MA 02143                    \`Cambridge, MA\\
     {Fall 2008--Spring 2013}
     {B.S. summa cum laude in Computer Science and Physics, 2013}
     {}{
-  \item 3.770/4.000 GPA
-  \item Relevant coursework: Software Development, Algorithms, Programming
-    Languages, Electricity and Magnetism, Quantum Mechanics
+  \item 3.77/4.00 GPA
 }
 
-\heading{Research Experience}
+\heading{Publications}
 
-\job{Pushdown Flow Analysis Applied to Parser Generators}
-    {Boston, MA}
+\pub{Shill: A Secure Shell Scripting Language}
+    {Scott Moore, Christos Dimoulas, Dan King, and Stephen Chong}
+    {October 2014}
+    {11th USENIX Symposium on Operating Systems Design and Implementation (OSDI)}
+
+\heading{Awards}
+
+\award{NSF Graduate Research Fellowship Honorable Mention}{2014}
+
+\heading{Research Projects}
+
+\job{Analysis of Static Analysis Strategies for JavaScript}
+    {}
+    {November 2014--Present}
+    {Advised by Stephen Chong}
+    {}{
+  \item{Implementing the LambdaJS semantics in a MAAM framework for monadic
+      abstract interpretation}
+  \item{Using the MAAM framework to analyze the performance-accuracy curves
+      of various static analysis strategies}
+}
+
+\job{Secure Use of Privileges in IFC and MAC Systems}
+    {}
+    {August 2014--November 2014}
+    {Advised by Stephen Chong}
+    {}{
+  \item{Designed a system to enable local reasoning about privilege protections
+      to infer system wide properties}
+  \item{Under review at IEEE Security \& Privacy 2015}
+}
+
+\job{Pushdown Flow Analysis for Push Down Automata}
+    {}
     {July 2011--June 2012, January 2013--June 2013}
-    {Research Assistant}
-    {Northeastern University}{
+    {Advised by Olin Shivers}
+    {}{
   \item{Implemented a compiler from a push down automata (PDA)
     description-language to Racket}
   \item{Designed a flow analysis which leverages the computational weakness of
     PDAs to achieve precise static guarantees}
-  \item{Learned an immense amount about type theory, abstract interpretation,
-    lattice theory, and parsing}
   \item{Source code is available at
     \url{http://github.com/danking/pda-to-pda-risc}, and \\
     \url{http://github.com/danking/pda-flow-analysis}}
 }
 
-\job{ME1/1 Electronics Upgrade to the Cathode Strip Chambers}
-    {Geneva, Switzerland}
-    {July 2012--December 2012}
-    {Research Assistant}
-    {Compact Muon Solenoid (CMS) at the European Organization for Nuclear Research (CERN)}{
-  \item{Collaborated with research scientists and engineers to facilitate the
-    testing and integration of new electronic components for the ME1/1 cathode
-    strip chambers}
-  \item{Updated, maintained, fixed, and wrote software written in a combination
-    of C, C++, Fortran, ROOT, and PAW}
-  \item{Communicated to broader audiences and documented for future users my
-    knowledge of the test stand and tools}
-  \item{Used knowledge of particle physics and circuit theory to understand the
-    operation of the cathode strip chamber}
-}
-
 \job{Scheme to JavaScript Compiler}
-    {Boston, MA}
+    {}
     {Spring 2009, Summer 2009, and Summer 2010}
-    {Research Assistant}
-    {Northeastern University}{
+    {Advised by David Van Horn}
+    {}{
   \item{Implemented a compiler to provide a browser-based runtime environment for
     students' Scheme programs}
   \item{Created a trampolining interpreter to achieve tail call optimization in
@@ -133,19 +175,12 @@ Somerville, MA 02143                    \`Cambridge, MA\\
   \item{Examples available at \texttt{http://www.ccs.neu.edu/home/danking/progs/}}
 }
 
-\heading{Awards and Fellowships}
-
-\begin{my-itemize}
-\setlength\itemsep{1pt}
-\item NSF Graduate Research Fellowship 2014 Honorable Mention
-\end{my-itemize}
-
 \heading{Engineering Experience}
 
 \job{Intuit, Inc.}
     {San Diego, CA}
     {July 2010--December 2010}
-    {Software Engineer}
+    {Software Engineerng Intern}
     {TurboTax Developer Operations Team}{
   \item{Took initiative to clean up and document regression tests}
   \item{Automated the building of an Eclipse Rich Client Platform product}
@@ -153,17 +188,7 @@ Somerville, MA 02143                    \`Cambridge, MA\\
   \item{Evaluated alternatives to deprecated Ruby libraries based on implementation constraints}
 }
 
-\job{TeaScript}
-    {San Diego, CA}
-    {Fall 2010}
-    {Sole Imagineer}
-    {A Personal Foray into Language and Compiler Design}{
-  \item{Wrote a compiler for a Scheme-like language that targets JavaScript and
-    attempts to produce readable JavaScript}
-  \item{Source code is available at \url{http://github.com/danking/tea-script}}
-}
-
-\heading{Tutoring Experience}
+\heading{Teaching Experience}
 
 \job{Bootstrap}
     {Boston, MA}
@@ -183,8 +208,6 @@ Somerville, MA 02143                    \`Cambridge, MA\\
   \item{Tutoring students in an array of undergraduate classes including:
     Fundamentals of Computer Science I and II, Object Oriented Design, and Logic
     and Computation}
-  \item{Received tutor training from the CLRA certified, head of peer tutoring
-    at Northeastern University}
 }
 
 \job{Fundamentals of Computer Science I}
@@ -194,19 +217,6 @@ Somerville, MA 02143                    \`Cambridge, MA\\
     {Northeastern University}{
   \item{Taught two lab sections; assistant TA for the honors section and lead TA
     for a regular section}
-  \item{Helped numerous students overcome idiosyncratic misunderstandings of the
-    course material during weekly office hours}
-}
-
-\heading{Activities}{
-
-\begin{my-itemize}
-\setlength\itemsep{1pt}
-\item{Playing soccer}
-\item{Studying Mandarin; I have an intermediate proficiency}
-\item{Boardgaming. Among the games I enjoy: Power Grid, Dominion, Settlers of
-  Catan, Puerto Rico.}
-\end{my-itemize}
 }
 
 \end{document}
