@@ -41,7 +41,7 @@
   #6
   \end{my-itemize}%
   \end{absolutelynopagebreak}
-  \vspace{-16pt}
+  \vspace{-18pt}
 }
 
 \newcommand{\pub}[4]{
@@ -64,7 +64,7 @@
 }
 
 \newcommand{\heading}[2]{
-  \vspace{2em}
+  \vspace{1.5em}
   \subsection*{\hspace{-.9em}$\lozenge$ #1}
   \vspace{-12pt}
   \rule{2in}{.5pt}
@@ -77,13 +77,13 @@
 \normalsize daniel.zidan.king@gmail.com \`\url{github.com/danking}
 \end{tabbing}
 
-\vspace{-10pt}
+\vspace{-15pt}
 
 \begin{tabbing}
-                                        \`\textbf{Office Address}\\
-\textbf{Mailing Address}                \`309 Maxwell Dworkin\\
-5A Durham St. Apt 3                     \`Harvard University\\
-Somerville, MA 02143                    \`Cambridge, MA\\
+                                        \`\\
+\textbf{Mailing Address}                \`\\
+5A Durham St. Apt 3                     \`\\
+Somerville, MA 02143                    \`\\
 \end{tabbing}
 \vspace{-25pt}
 \rule{\linewidth}{.1pt}
@@ -93,19 +93,21 @@ Somerville, MA 02143                    \`Cambridge, MA\\
 
 \job{Harvard University}
     {Cambridge, MA}
-    {Fall 2013--Present}
-    {Computer Science Ph.D. Student}
+    {Fall 2013--Spring 2015}
+    {S.M. Computer Science}
     {}{
-  \item Studying Programming Languages, advised by Stephen Chong
+  \item Performed research on Programming Languages, advised by Stephen Chong
+  \item Coursework on Machine Learning, Complexity Theory, Systems Design and
+    Implementation, Programming Languages, Security, and Verification
 }
 
-\job{The Inter-University Program for Chinese Language Study, Tsinghua University}
-    {Beijing, China}
-    {Summer 2013}
-    {Chinese Language Student}
-    {}{
-  \item Studied Chinese at an intermediate level
-}
+% \job{The Inter-University Program for Chinese Language Study, Tsinghua University}
+%     {Beijing, China}
+%     {Summer 2013}
+%     {Chinese Language Student}
+%     {}{
+%   \item Studied Chinese at an intermediate level
+% }
 
 \job{Northeastern University}
     {Boston, MA}
@@ -122,21 +124,27 @@ Somerville, MA 02143                    \`Cambridge, MA\\
     {October 2014}
     {11th USENIX Symposium on Operating Systems Design and Implementation (OSDI)}
 
-\heading{Awards}
-
-\award{NSF Graduate Research Fellowship Honorable Mention}{2014}
-
 \heading{Research Projects}
 
-\job{Analysis of Static Analysis Strategies for JavaScript}
+\job{Reflection Analysis of Java Programs}
     {}
-    {November 2014--Present}
+    {December 2014--May 2015}
     {Advised by Stephen Chong}
     {}{
-  \item{Implementing the LambdaJS semantics in a MAAM framework for monadic
-      abstract interpretation}
-  \item{Using the MAAM framework to analyze the performance-accuracy curves
-      of various static analysis strategies}
+  \item{Improved the Accrue analysis framework for Java programs to handle
+      some uses of the Reflection API}
+  \item{Implemented in Java 7}
+}
+
+\job{Dynamic Analysis to discover Floating-Point Precision Loss}
+    {}
+    {December 2014--May 2015}
+    {Advised by Eddie Kohler}
+    {}{
+  \item{Modified the LLVM interpreter to dynamically track the loss of precision
+    in floating-point numbers}
+  \item{Implemented in C++}
+  \item{Source code available at: \url{https://github.com/danking/real-semantics}}
 }
 
 \job{Secure Use of Privileges in IFC and MAC Systems}
@@ -144,9 +152,30 @@ Somerville, MA 02143                    \`Cambridge, MA\\
     {August 2014--November 2014}
     {Advised by Stephen Chong}
     {}{
-  \item{Designed a system to enable local reasoning about privilege protections
-      to infer system wide properties}
-  \item{Under review at IEEE Security \& Privacy 2015}
+  \item{Designed a system to enable local reasoning about secure privilege use
+     to infer system wide properties}
+  \item{Implemented in Haskell}
+  \item{Under review at 20th European Symposium on Research in Computer Security}
+}
+
+\job{Shill: Secure Shell Scripting}
+    {}
+    {January 2014--November 2014}
+    {Advised by Eddie Kohler}
+    {}{
+  \item{Designed and implemented the security control system for sockets}
+  \item{Implemented in Racket and C (in the BSD kernel)}
+  \item{Available at \url{http://shill-lang.org}}
+}
+
+\job{Shill: Secure Shell Scripting}
+    {}
+    {January 2014--November 2014}
+    {Advised by Stephen Chong}
+    {}{
+  \item{Designed and implemented the security control system for sockets}
+  \item{Implemented in Racket and C (in the BSD kernel)}
+  \item{Available at \url{http://shill-lang.org}}
 }
 
 \job{Pushdown Flow Analysis for Push Down Automata}
@@ -154,13 +183,12 @@ Somerville, MA 02143                    \`Cambridge, MA\\
     {July 2011--June 2012, January 2013--June 2013}
     {Advised by Olin Shivers}
     {}{
-  \item{Implemented a compiler from a push down automata (PDA)
-    description-language to Racket}
-  \item{Designed a flow analysis which leverages the computational weakness of
-    PDAs to achieve precise static guarantees}
+  \item{Acheived precise static guarantees by leveraging the computational
+     weakness of PDAs}
+  \item{Implemented in Racket}
   \item{Source code is available at
-    \url{http://github.com/danking/pda-to-pda-risc}, and \\
-    \url{http://github.com/danking/pda-flow-analysis}}
+    \url{https://github.com/danking/pda-to-pda-risc}, and \\
+    \url{https://github.com/danking/pda-flow-analysis}}
 }
 
 \job{Scheme to JavaScript Compiler}
@@ -168,14 +196,25 @@ Somerville, MA 02143                    \`Cambridge, MA\\
     {Spring 2009, Summer 2009, and Summer 2010}
     {Advised by David Van Horn}
     {}{
-  \item{Implemented a compiler to provide a browser-based runtime environment for
-    students' Scheme programs}
+  \item{Implemented a compiler to provide a browser-based runtime environment
+     for student programs}
   \item{Created a trampolining interpreter to achieve tail call optimization in
     JavaScript}
+  \item{Implemented in Racket}
   \item{Examples available at \texttt{http://www.ccs.neu.edu/home/danking/progs/}}
 }
 
 \heading{Engineering Experience}
+
+\job{European Organization for Nuclear Research (\textsc{CERN})}
+    {Geneva, Switzerland}
+    {July 2012--December 2012}
+    {Research Assistant}
+    {Compact Muon Solenoid}{
+  \item{Implemented algorithms in C++ for verifying the functional correctness
+    of hardware built to measure rates and momenta of muons passing through a
+    plane}
+ }
 
 \job{Intuit, Inc.}
     {San Diego, CA}
@@ -188,35 +227,70 @@ Somerville, MA 02143                    \`Cambridge, MA\\
   \item{Evaluated alternatives to deprecated Ruby libraries based on implementation constraints}
 }
 
-\heading{Teaching Experience}
+\heading{Fun}
 
-\job{Bootstrap}
-    {Boston, MA}
-    {Fall 2009, Spring 2014}
-    {After School Teacher}
-    {Citizen Schools}{
-  \item{Teaching middle school students algebra by teaching them how to program their
-    own video games.}
-  \item{More info about the Bootstrap project is available at \texttt{http://www.bootstrapworld.org/}}
+\job{(Co)Monadic Lambda Calculus Interpreter}
+    {}
+    {}
+    {\vspace{-15pt}}
+    {}{
+  \item{Exploring the use of comonads in implementing an interpreter for a
+      slightly enriched lambda calculus}
+  \item{Source code available at: \url{https://github.com/danking/monadic-interpreter}}
 }
 
-\job{General Computer Science Tutor}
-    {Boston, MA}
-    {January 2012--June 2012}
-    {Tutor}
-    {Northeastern University}{
-  \item{Tutoring students in an array of undergraduate classes including:
-    Fundamentals of Computer Science I and II, Object Oriented Design, and Logic
-    and Computation}
-}
 
-\job{Fundamentals of Computer Science I}
-    {Boston, MA}
-    {Fall 2011}
-    {Teaching Assistant}
-    {Northeastern University}{
-  \item{Taught two lab sections; assistant TA for the honors section and lead TA
-    for a regular section}
-}
+\heading{Skills}
+
+\begin{itemize}
+\item \textbf{Languages:} Haskell, Racket, Erlang, Scheme, Java, C, C++, Ruby
+\item \textbf{Tools:} Emacs, Git
+\end{itemize}
+\vspace{-15pt}
+
+\heading{Awards}
+
+\award{NSF Graduate Research Fellowship Honorable Mention}{2014}
+
+
+% \heading{Teaching Experience}
+
+% \job{Programming Languages}
+%     {Cambridge, MA}
+%     {January 2015--May 2015}
+%     {Teaching Fellow}
+%     {Harvard University}{
+%   \item{Held office hours, taught some sections, and prepared homeworks for an
+%       advanced under-graduate programming languages course.}
+% }
+
+% \job{Bootstrap}
+%     {Boston, MA}
+%     {Fall 2009, Spring 2014}
+%     {After School Teacher}
+%     {Citizen Schools}{
+%   \item{Teaching middle school students algebra by teaching them how to program their
+%     own video games.}
+%   \item{More info about the Bootstrap project is available at \texttt{http://www.bootstrapworld.org/}}
+% }
+
+% \job{General Computer Science Tutor}
+%     {Boston, MA}
+%     {January 2012--June 2012}
+%     {Tutor}
+%     {Northeastern University}{
+%   \item{Tutoring students in an array of undergraduate classes including:
+%     Fundamentals of Computer Science I and II, Object Oriented Design, and Logic
+%     and Computation}
+% }
+
+% \job{Fundamentals of Computer Science I}
+%     {Boston, MA}
+%     {Fall 2011}
+%     {Teaching Assistant}
+%     {Northeastern University}{
+%   \item{Taught two lab sections; assistant TA for the honors section and lead TA
+%     for a regular section}
+% }
 
 \end{document}
