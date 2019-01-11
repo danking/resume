@@ -31,7 +31,7 @@
 \newcommand{\job}[6]{
   \begin{absolutelynopagebreak}
   \vspace{-5pt}
-  \begin{tabbing} {\bf #1} \` {\small \textit{#3}} \end{tabbing}
+  \begin{tabbing} {\bf #1}, #2 \` {\small \textit{#3}} \end{tabbing}
   \vspace{-12pt}
   \begin{my-itemize}
   \setlength\itemsep{1pt}
@@ -82,18 +82,46 @@
 \begin{tabbing}
                                         \`\\
 \textbf{Mailing Address}                \`\\
-102 Prospect St., APT 1                 \`\\
-Cambridge, MA 02139                     \`\\
+31 Cherry Street, APT 3                 \`\\
+Somerville, MA 02144                    \`\\
 \end{tabbing}
 \vspace{-25pt}
 \rule{\linewidth}{.1pt}
 
 \vspace{-2em}
-\heading{Engineering And Research Experience}
+\heading{Engineering Experience}
+
+\job{The Broad Institute of MIT and Harvard}
+    {Cambridge, MA}
+    {July 2016--Current}
+    {Senior Software Engineer}
+    {Hail Team}{
+
+    \item{Led the initial implementation of the Hail expression compiler}
+
+    \item{Implemented statistical genetics methods in a scalable manner using
+      Hail}
+
+    \item{Leading the development of Kubernetes services that support Hail
+      developers}
+
+    \item{Leading the design and implementation of distributed linear algebra
+      primitives in Hail}
+
+    \item{Established the Hail co-op/internship program and mentored
+      co-ops/interns}
+
+    \item{Lead a candidate search for full-time junior and senior engineers}
+
+    \item{Disseminated engineering best practices to a group of engineers
+      with unorthodox backgrounds}
+
+    \item{\url{https://github.com/danking} at \url{https://github.com/hail-is/hail/graphs/contributors}}
+}
 
 \job{TriNetX, Inc.}
     {Cambridge, MA}
-    {July 2015--Current}
+    {July 2015--July 2016}
     {Software Engineer}
     {}{
     \item{Led the transition from Java 7 to Java 8 and promulgated immutable,
@@ -102,11 +130,23 @@ Cambridge, MA 02139                     \`\\
       ``Criteria Analysis'' feature}
     \item{Implemented as a distributed system using Mongo map reduce, SQL
       databases, and Java 8}
-
 }
 
+\job{Intuit, Inc.}
+    {San Diego, CA}
+    {July 2010--December 2010}
+    {Software Engineerng Intern}
+    {TurboTax Developer Operations Team}{
+  \item{Took initiative to clean up and document regression tests}
+  \item{Automated the building of an Eclipse Rich Client Platform product}
+  \item{Investigated the source of seg faults in the build system}
+  \item{Evaluated alternatives to deprecated Ruby libraries based on implementation constraints}
+}
+
+\heading{Research Experience}
+
 \job{Reflection Analysis of Java Programs}
-    {}
+    {Harvard University}
     {December 2014--May 2015}
     {Advised by Stephen Chong}
     {}{
@@ -116,7 +156,7 @@ Cambridge, MA 02139                     \`\\
 }
 
 \job{Dynamic Analysis to discover Floating-Point Precision Loss}
-    {}
+    {Harvard University}
     {December 2014--May 2015}
     {Advised by Eddie Kohler}
     {}{
@@ -127,7 +167,7 @@ Cambridge, MA 02139                     \`\\
 }
 
 \job{Secure Use of Privileges in IFC and MAC Systems}
-    {}
+    {Harvard University}
     {August 2014--November 2014}
     {Advised by Stephen Chong}
     {}{
@@ -137,7 +177,7 @@ Cambridge, MA 02139                     \`\\
 }
 
 \job{Shill: Secure Shell Scripting}
-    {}
+    {Harvard University}
     {January 2014--November 2014}
     {Advised by Stephen Chong}
     {}{
@@ -147,7 +187,7 @@ Cambridge, MA 02139                     \`\\
 }
 
 \job{Pushdown Flow Analysis for Push Down Automata}
-    {}
+    {Northeastern University}
     {July 2011--June 2012, January 2013--June 2013}
     {Advised by Olin Shivers}
     {}{
@@ -169,47 +209,12 @@ Cambridge, MA 02139                     \`\\
     plane}
  }
 
-\job{Intuit, Inc.}
-    {San Diego, CA}
-    {July 2010--December 2010}
-    {Software Engineerng Intern}
-    {TurboTax Developer Operations Team}{
-  \item{Took initiative to clean up and document regression tests}
-  \item{Automated the building of an Eclipse Rich Client Platform product}
-  \item{Investigated the source of seg faults in the build system}
-  \item{Evaluated alternatives to deprecated Ruby libraries based on implementation constraints}
-}
-
-\job{Scheme to JavaScript Compiler}
-    {}
-    {Spring 2009, Summer 2009, and Summer 2010}
-    {Advised by David Van Horn}
-    {}{
-  \item{Implemented a compiler to provide a browser-based runtime environment
-     for student programs}
-  \item{Created a trampolining interpreter to achieve tail call optimization in
-    JavaScript}
-  \item{Implemented in Racket}
-}
-
 \heading{Publications}
 
 \pub{Shill: A Secure Shell Scripting Language}
     {Scott Moore, Christos Dimoulas, Dan King, and Stephen Chong}
     {October 2014}
     {11th USENIX Symposium on Operating Systems Design and Implementation (OSDI)}
-
-\heading{Fun}
-
-\job{(Co)Monadic Lambda Calculus Interpreter}
-    {}
-    {}
-    {\vspace{-15pt}}
-    {}{
-  \item{Exploring the use of comonads in implementing an interpreter for a
-      slightly enriched lambda calculus}
-  \item{Source code available at: \url{https://github.com/danking/monadic-interpreter}}
-}
 
 \heading{Education}
 
@@ -223,14 +228,6 @@ Cambridge, MA 02139                     \`\\
     Implementation, Programming Languages, Security, and Verification
 }
 
-% \job{The Inter-University Program for Chinese Language Study, Tsinghua University}
-%     {Beijing, China}
-%     {Summer 2013}
-%     {Chinese Language Student}
-%     {}{
-%   \item Studied Chinese at an intermediate level
-% }
-
 \job{Northeastern University}
     {Boston, MA}
     {Fall 2008--Spring 2013}
@@ -242,8 +239,8 @@ Cambridge, MA 02139                     \`\\
 \heading{Skills}
 
 \begin{itemize}
-\item \textbf{Languages:} Haskell, Racket, Erlang, Scheme, Java, C, C++, Ruby
-\item \textbf{Tools:} Emacs, Git
+\item \textbf{Languages:} Python, Scala, Java, C, Haskell, Racket
+\item \textbf{Tools:} Emacs, Git, Kubernetes, Google Cloud Platform, Spark
 \end{itemize}
 \vspace{-15pt}
 
